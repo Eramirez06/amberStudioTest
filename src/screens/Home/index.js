@@ -9,8 +9,9 @@ import {styles} from './styles';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
-export default function HomeScreen({navigation}) {
+const HomeScreen = ({navigation}) => {
   const {navigate} = navigation;
   const dispatch = useDispatch();
   const {data, loading, error} = useSelector(state => state.crypto);
@@ -21,11 +22,13 @@ export default function HomeScreen({navigation}) {
   }, [dispatch]);
 
   const handleLivePrices = () => {
+    ReactNativeHapticFeedback.trigger('impactLight');
     setIsLive(true);
     connectToFeed(CURRENCIES, dispatch);
   };
 
   const handleStopPrices = () => {
+    ReactNativeHapticFeedback.trigger('impactLight');
     setIsLive(false);
     disconnectFromFeed();
   };
@@ -64,4 +67,6 @@ export default function HomeScreen({navigation}) {
       </View>
     </SafeAreaView>
   );
-}
+};
+
+export default HomeScreen;

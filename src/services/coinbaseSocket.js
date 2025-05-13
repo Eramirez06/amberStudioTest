@@ -24,7 +24,7 @@ export const connectToFeed = (symbols, dispatch) => {
   };
 
   ws.onerror = e => {
-    console.error('WebSocket error:', e.message);
+    console.log('WebSocket error:', e.message);
   };
 
   ws.onclose = () => {

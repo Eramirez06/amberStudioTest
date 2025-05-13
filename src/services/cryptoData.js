@@ -1,4 +1,4 @@
-import {CURRENCIES, ICON_MAP} from '../constants';
+import {COLOR_MAP, CURRENCIES, ICON_MAP} from '../constants';
 import {setCryptoData, setError, setLoading} from '../store/crypto';
 
 export const fetchCryptoData = () => async dispatch => {
@@ -11,11 +11,13 @@ export const fetchCryptoData = () => async dispatch => {
           `https://api.coinbase.com/v2/prices/${symbol}/spot`,
         );
         const json = await res.json();
-        console.log('json', json);
+        const name = symbol.split('-')[0];
+
         prices[symbol] = {
           id: symbol,
-          name: symbol.split('-')[0],
+          name,
           price: json.data.amount,
+          color: COLOR_MAP[name] || '#FFFFFF',
           icon:
             ICON_MAP[symbol.split('-')[0]] || 'https://via.placeholder.com/64',
         };
