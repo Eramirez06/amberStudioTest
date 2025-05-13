@@ -32,7 +32,16 @@ export const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignItems: 'flex-end',
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  liveDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#4CAF50',
+    marginRight: 6,
   },
 });
