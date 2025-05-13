@@ -1,0 +1,1 @@
+export const CURRENCIES = ['BTC-USD', 'ETH-USD', 'SOL-USD', 'DOGE-USD', 'ADA-USD', 'MATIC-USD'];
