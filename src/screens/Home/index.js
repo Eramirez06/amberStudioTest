@@ -8,6 +8,7 @@ import {CryptoItem} from './components/CryptoItem';
 import {styles} from './styles';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 export default function HomeScreen({navigation}) {
   const {navigate} = navigation;
@@ -48,7 +49,7 @@ export default function HomeScreen({navigation}) {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <FlatList
         data={Object.values(data)}
         keyExtractor={item => item.id}
@@ -61,6 +62,6 @@ export default function HomeScreen({navigation}) {
           onPress={isLive ? handleStopPrices : handleLivePrices}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
