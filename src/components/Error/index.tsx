@@ -1,7 +1,11 @@
 import React from 'react';
 import {Text} from 'react-native';
 
-const Error = ({error}) => {
+interface ErrorProps {
+  error: string;
+}
+
+const Error: React.FC<ErrorProps> = ({error}) => {
   return <Text style={{color: 'red', textAlign: 'center'}}>{error}</Text>;
 };
 

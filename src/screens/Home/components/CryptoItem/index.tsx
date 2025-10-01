@@ -2,8 +2,28 @@ import React, {useEffect, useRef} from 'react';
 import {Text, Image, Pressable, View, Animated} from 'react-native';
 import {styles} from './styles';
 
-export const CryptoItem = ({name, price, icon, onPress, isLive}) => {
+interface CryptoItemProps {
+  name: string;
+  price: string;
+  icon: string;
+  onPress: () => void;
+  isLive: boolean;
+  percentageChange?: string;
+}
+
+export const CryptoItem: React.FC<CryptoItemProps> = ({
+  name,
+  price,
+  icon,
+  onPress,
+  isLive,
+  percentageChange,
+}) => {
   const scaleAnim = useRef(new Animated.Value(1)).current;
+
+  const changeValue = parseFloat(percentageChange || '0');
+  const isPositive = changeValue >= 0;
+  const changeColor = isPositive ? '#4CAF50' : '#F44336';
 
   useEffect(() => {
     if (isLive) {
@@ -29,7 +49,13 @@ export const CryptoItem = ({name, price, icon, onPress, isLive}) => {
     <Pressable onPress={onPress} style={styles.item}>
       <View style={styles.container}>
         <Image source={{uri: icon}} style={styles.icon} />
-        <Text style={styles.name}>{name}</Text>
+        <View style={styles.nameContainer}>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={[styles.percentage, {color: changeColor}]}>
+            {isPositive ? '+' : ''}
+            {changeValue.toFixed(2)}%
+          </Text>
+        </View>
       </View>
       <View style={styles.content}>
         {isLive && (

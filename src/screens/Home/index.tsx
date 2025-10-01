@@ -1,20 +1,30 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {View, FlatList, Button} from 'react-native';
+import {View, FlatList, Button, ListRenderItem} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {CURRENCIES} from '../../constants';
 import {fetchCryptoData} from '../../services/cryptoData';
-import {connectToFeed, disconnectFromFeed} from '../../services/coinbaseSocket';
+import {connectToFeed, disconnectFromFeed} from '../../services/finnhubSocket';
 import {CryptoItem} from './components/CryptoItem';
 import {styles} from './styles';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import {RootState, AppDispatch} from '../../store/store';
+import {CryptoData} from '../../store/crypto';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../../App';
 
-const HomeScreen = ({navigation}) => {
+interface HomeScreenProps {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
+}
+
+const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
   const {navigate} = navigation;
-  const dispatch = useDispatch();
-  const {data, loading, error} = useSelector(state => state.crypto);
+  const dispatch = useDispatch<AppDispatch>();
+  const {data, loading, error} = useSelector(
+    (state: RootState) => state.crypto,
+  );
   const [isLive, setIsLive] = useState(false);
 
   useEffect(() => {
@@ -33,7 +43,7 @@ const HomeScreen = ({navigation}) => {
     disconnectFromFeed();
   };
 
-  const renderItem = useCallback(
+  const renderItem: ListRenderItem<CryptoData> = useCallback(
     ({item}) => (
       <CryptoItem
         {...item}

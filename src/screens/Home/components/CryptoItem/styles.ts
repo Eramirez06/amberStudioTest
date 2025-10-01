@@ -23,8 +23,17 @@ export const styles = StyleSheet.create({
     height: 32,
     marginRight: 12,
   },
+  nameContainer: {
+    flex: 1,
+  },
   name: {
     fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  percentage: {
+    fontSize: 14,
+    fontWeight: '500',
   },
   price: {
     fontWeight: 'bold',

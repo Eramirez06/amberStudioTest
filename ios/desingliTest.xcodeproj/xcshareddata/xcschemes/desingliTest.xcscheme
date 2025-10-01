@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "amberStudioTest.app"
-               BlueprintName = "amberStudioTest"
-               ReferencedContainer = "container:amberStudioTest.xcodeproj">
+               BuildableName = "desingliTest.app"
+               BlueprintName = "desingliTest"
+               ReferencedContainer = "container:desingliTest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "amberStudioTestTests.xctest"
-               BlueprintName = "amberStudioTestTests"
-               ReferencedContainer = "container:amberStudioTest.xcodeproj">
+               BuildableName = "desingliTestTests.xctest"
+               BlueprintName = "desingliTestTests"
+               ReferencedContainer = "container:desingliTest.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "amberStudioTest.app"
-            BlueprintName = "amberStudioTest"
-            ReferencedContainer = "container:amberStudioTest.xcodeproj">
+            BuildableName = "desingliTest.app"
+            BlueprintName = "desingliTest"
+            ReferencedContainer = "container:desingliTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "amberStudioTest.app"
-            BlueprintName = "amberStudioTest"
-            ReferencedContainer = "container:amberStudioTest.xcodeproj">
+            BuildableName = "desingliTest.app"
+            BlueprintName = "desingliTest"
+            ReferencedContainer = "container:desingliTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
